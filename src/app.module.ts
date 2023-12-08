@@ -14,6 +14,7 @@ import { LikeModule } from './modules/actions/like/like.module';
 import { ShareModule } from './modules/actions/share/share.module';
 import { CommentModule } from './modules/actions/comment/comment.module';
 import { FavoriteModule } from './modules/favorite/favorite.module';
+import { SystemNotifModule } from './modules/system-notif/system-notif.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { FavoriteModule } from './modules/favorite/favorite.module';
     ShareModule,
     CommentModule,
     FavoriteModule,
+    SystemNotifModule,
   ],
   controllers: [AppController],
   providers: [AppService],

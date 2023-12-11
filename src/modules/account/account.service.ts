@@ -12,4 +12,12 @@ export class AccountService {
   async find(): Promise<Account[]> {
     return await this.accountModle.find();
   }
+
+  async findBy(field: string, value: any): Promise<Account> {
+    return await this.accountModle.findOne({ [field]: value }).exec();
+  }
+
+  async create(account: Account): Promise<Account> {
+    return await this.accountModle.create(account);
+  }
 }

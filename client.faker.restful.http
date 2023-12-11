@@ -2,21 +2,49 @@
 ############### BACKEND_WEBPPJ
 GET http://localhost:7000
 
+### -> REST API -> GET USERS
+GET http://localhost:7000/api/users
+
 ### -> REST API -> GET ACCOUNTS
-GET http://localhost:7000/accounts
+GET http://localhost:7000/api/accounts
 
-### -> REST API -> GET CLIENTS
-GET http://localhost:7000/clients
 
-### -> REST API -> POST CREATE ACCOUNT
-POST http://localhost:7000/users/signup
+### -> REST API -> POST CREATE USER
+POST http://localhost:7000/api/users/new
 content-type: application/json
 
-{    
-    "last_name": "Người dùng 1",
-    "username": "admin7v52",
+{
+    "last_name": "Nguyễn Vũ"
+}
+
+### -> REST API -> POST CREATE ACCOUNT -> ADMIN
+POST http://localhost:7000/api/accounts/create
+content-type: application/json
+
+{
+    "user_id": "20231211133753643",
+    "username": "7v52admin",
     "password": "admin777",
-    "role": 7,
+    "role": 7
+}
+
+### -> REST API -> POST CREATE ACCOUNT -> USER
+POST http://localhost:7000/api/accounts/create
+content-type: application/json
+
+{
+    "user_id": "0000",
+    "username": "user1",
+    "password": "user1"
+}
+
+### -> REST API -> POST ACCOUNT SIGN-IN -> NORMAL
+POST http://localhost:7000/api/accounts/signin
+content-type: application/json
+
+{
+    "username": "7v52admin",
+    "password": "admin777"
 }
 
 ### -> REST API -> PUT/PATCH UPDATE USER
@@ -24,49 +52,69 @@ POST http://localhost:7000/users/update
 content-type: application/json
 
 {
-    "first_name": "Nguyễn",
-    "last_name": "Vũ",
-    "nick_name": "7V",
-    "birth": "04/05/2002",
-    "description": "Admin & Manager of PJ",
-    "bio": "Không muốn làm MC - Chỉ muốn làm Em Vui",
-    "avatar": "images/users/avatart/admin7v52.png",
-    "cover_image": "images/users/cover_images/cover_image_admin7v52.png",
-    "contact": {
-        "phone": "0358802875",
-        "email": "nguyenvu2319@gmail.com",
-        "socials": {
-            "facebook": "https://www.facebook.com/nguyenvu.version2319.vn",
-            "instagram": "_",
-            "tiktok": "https://www.tiktok.com/@_7v_52",
-            "youtube": "https://www.youtube.com/@7vnguyenvu52",
-            "github": "https://github.com/vunguyen-dev-er"
-        }
-    }
 }
 
-### -> REST API -> POST USER SIGN-UP
-POST http://localhost:7000/users/signup
-content-type: application/json
-
+###
 {
-    "account": "user1",
-    "password": "user1",
-    "last_name": "Người dùng 1"
+    "info": {
+        "first_name": "Nguyễn",
+        "last_name": "Vũ",
+        "full_name": "Nguyễn Vũ",
+        "nick_name": "7V",
+        "bio": "Không muốn làm MC - Chỉ muốn làm Em Vui",
+        "description": "Admin & Manager of PJ",
+        "birth": "04/05/2002",
+        "contact": {
+            "phone": "0358802875",
+            "email": "nguyenvu2319@gmail.com",
+            "socials": [
+                {
+                    "name": "Facebook",
+                    "hyperlink": "Nguyễn Vũ",
+                    "url": "https://www.facebook.com/nguyenvu.version2319.vn"
+                },
+                {
+                    "name": "TikTok",
+                    "hyperlink": "@_7v_52",
+                    "url": "https://www.tiktok.com/@_7v_52"
+                },
+                {
+                    "name": "Youtube",
+                    "hyperlink": "7V Nguyễn Vũ",
+                    "url": "https://www.youtube.com/@7vnguyenvu52"
+                },
+                {
+                    "name": "Github",
+                    "hyperlink": "Nguyễn Vũ",
+                    "url": "https://github.com/vunguyen-dev-er"
+                }
+            ]
+        }
+    },
+    "images": {
+        "avatar": [
+            {
+                "filename": "admin.png",
+                "url": "http://localhost:7000/images/avatars/admin.png"
+            }
+        ],
+        "cover": [
+            {
+                "filename": "admin.jpg",
+                "url": "http://localhost:7000/images/cover-images/admin.jpg"
+            }
+        ]
+    }
+    
 }
+###
+
+
 
 ### -> REST API -> POST USER SIGN-IN -> WITH TOKEN
 POST http://localhost:7000/users/signin
 content-type: application/json
 x-auth-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGVkOTQzMmU3NTc5ZjRmYjJlMzQ2YmMiLCJjb2RlIjoiMWFkNzM0M2NmNThhNGIyNGJhNTQ2YzcwMDE5NzA0MTQiLCJhY2NvdW50IjoidXNlcjEiLCJyb2xlIjowLCJmaXJzdF9uYW1lIjoiXyIsImxhc3RfbmFtZSI6Ik5nxrDhu51pIGTDuW5nIDEiLCJuaWNrX25hbWUiOiJ1c2VyMjE5NDQ0NjY4MzM2MjMzMjExMzYiLCJiaXJ0aCI6Il8iLCJkZXNjcmlwdGlvbiI6Il8iLCJiaW8iOiJfIiwiYXZhdGFyIjoiXyIsImNvdmVyX2ltYWdlIjoiXyIsImNvbnRhY3QiOnsicGhvbmUiOiJfIiwiZW1haWwiOiJfIiwic29jaWFscyI6eyJmYWNlYm9vayI6Il8iLCJpbnN0YWdyYW0iOiJfIiwidGlrdG9rIjoiXyIsInlvdXR1YmUiOiJfIiwiZ2l0aHViIjoiXyJ9fSwiZnJpZW5kcyI6W10sImNyZWF0ZWRBdCI6IjIwMjMtMDgtMjlUMDY6NDY6MTAuMTAzWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDgtMjlUMDY6NDY6MTAuMTAzWiIsIl9fdiI6MCwiaWF0IjoxNjkzMjkyNDMxfQ.HIKTUWraHDtpB-cQvfcnVZbFe9T4B36pNkEHSFxiKVQ
 
-### -> REST API -> POST USER SIGN-IN -> NORMAL
-POST http://localhost:7000/users/signin
-content-type: application/json
-
-{
-    "account": "user1",
-    "password": "user1"
-}
 
 

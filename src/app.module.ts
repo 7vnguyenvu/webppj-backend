@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { ServeStaticModule } from '@nestjs/serve-static';
 import { MongooseModule } from '@nestjs/mongoose';
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AccountModule } from './modules/account/account.module';
@@ -19,6 +21,9 @@ import { SystemNotifModule } from './modules/system-notif/system-notif.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'files'),
+    }),
     MongooseModule.forRoot(
       `${process.env.DB_CONNECTION}/${process.env.DB_NAME}`,
     ),

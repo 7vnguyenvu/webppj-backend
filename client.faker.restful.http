@@ -5,6 +5,9 @@ GET http://localhost:7000
 ### -> REST API -> GET USERS
 GET http://localhost:7000/api/users
 
+### -> REST API -> GET USER/:id
+GET http://localhost:7000/api/users/20231211163214134
+
 ### -> REST API -> GET ACCOUNTS
 GET http://localhost:7000/api/accounts
 

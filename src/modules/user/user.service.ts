@@ -14,6 +14,10 @@ export class UserService {
     return await this.userModle.find();
   }
 
+  async findBy(field: string, value: any): Promise<User> {
+    return await this.userModle.findOne({ [field]: value }).exec();
+  }
+
   async create(user: UserNone): Promise<User> {
     const ucreate = new User();
     ucreate.user_id = new Date().toISOString().replace(/\D/g, '');

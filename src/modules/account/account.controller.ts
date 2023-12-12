@@ -28,7 +28,11 @@ export class AccountController {
   async signin(@Req() req): Promise<Account | any> {
     // #. Kiểm tra Tên đăng nhập
     if (!(await this.accountService.findBy('username', req.body.username)))
-      return JSON.stringify('Tài khoản không tồn tại!');
+      // return JSON.stringify('Tài khoản không tồn tại!');
+      return {
+        status: 401,
+        message: 'Tài khoản không tồn tại!',
+      };
 
     // #. Kiểm tra Mật khẩu
     const password = (
@@ -36,7 +40,11 @@ export class AccountController {
     ).password;
 
     if (!(await this.hashService.compareHash(req.body.password, password)))
-      return JSON.stringify('Mật khẩu sai!');
+      // return JSON.stringify('Mật khẩu sai!');
+      return {
+        status: 401,
+        message: 'Mật khẩu sai!',
+      };
 
     // 1. Lấy kết quả Tài khoản khi đăng nhập thành công.
     // 2. Loại bỏ password (tránh lộ password) -> xử lý tạo JWT -> trả về cho người dùng.
@@ -53,9 +61,13 @@ export class AccountController {
 
     return {
       // token: this.jwtService.sign(res),
-      user_id: result.user_id,
-      role: result.role,
-      locked: result.locked,
+      status: 200,
+      message: 'Đăng nhập thành công!',
+      account: {
+        user_id: result.user_id,
+        role: result.role,
+        locked: result.locked,
+      },
     };
   }
 }

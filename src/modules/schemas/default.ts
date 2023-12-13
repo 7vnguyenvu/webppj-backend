@@ -27,6 +27,16 @@ export const DefaultUserInfo = {
 };
 
 export const DefaultUserImage = {
-  avatar: [],
-  cover: [],
+  avatar: [
+    {
+      filename: 'user-default.png',
+      url: 'http://localhost:7000/images/avatars/user-default.png',
+    },
+  ],
+  cover: [
+    {
+      filename: 'user-default.png',
+      url: 'http://localhost:7000/images/cover-images/user-default.png',
+    },
+  ],
 };

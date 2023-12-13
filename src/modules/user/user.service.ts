@@ -23,6 +23,7 @@ export class UserService {
     ucreate.user_id = new Date().toISOString().replace(/\D/g, '');
     const result = await this.userModle.create(ucreate);
     result.info.last_name = user.last_name;
+    result.info.full_name = user.last_name;
     result.info.nick_name =
       '@user' + new Date().toISOString().replace(/\D/g, '');
 

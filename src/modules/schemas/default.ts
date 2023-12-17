@@ -30,13 +30,18 @@ export const DefaultUserImage = {
   avatar: [
     {
       filename: 'user-default.png',
-      url: 'http://localhost:7000/images/avatars/user-default.png',
+      url: `${process.env.HOME_PAGE}/images/avatars/user-default.png`,
     },
   ],
   cover: [
     {
       filename: 'user-default.png',
-      url: 'http://localhost:7000/images/cover-images/user-default.png',
+      url: `${process.env.HOME_PAGE}/images/cover-images/user-default.png`,
     },
   ],
+};
+
+export const DefaultLayoutThumbnailImage = {
+  filename: 'default.png',
+  url: `${process.env.HOME_PAGE}/images/layouts/page-intro-thumbnails/default.png`,
 };

@@ -1,7 +1,6 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './schemas/user.schema';
-import { async } from 'rxjs';
 
 @Controller('api/users')
 export class UserController {
@@ -20,5 +19,10 @@ export class UserController {
   @Post('new')
   async create(@Body() user): Promise<User> {
     return await this.userService.create(user);
+  }
+
+  @Put('update/:id')
+  async update(@Param('id') user_id: string): Promise<User> {
+    return await this.userService.findBy('user_id', user_id); // ...
   }
 }

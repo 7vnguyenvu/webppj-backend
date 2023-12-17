@@ -34,3 +34,24 @@ export class UserImage {
   avatar?: Image[];
   cover?: Image[];
 }
+
+export class LayoutItemColConfig {
+  xs?: Record<string, any>;
+  sm?: Record<string, any>;
+  md?: Record<string, any>;
+  lg?: Record<string, any>;
+  xl?: Record<string, any>;
+  xxl?: Record<string, any>;
+}
+
+export class LayoutItem {
+  type?: string;
+  colConfig?: LayoutItemColConfig;
+  styles?: Record<string, string | number>;
+}
+
+export class BlogContent {
+  thumbnail?: Image;
+  title?: string;
+  content?: string;
+}

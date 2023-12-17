@@ -8,7 +8,6 @@ import { AppService } from './app.service';
 import { AccountModule } from './modules/account/account.module';
 import { UserModule } from './modules/user/user.module';
 import { BlogModule } from './modules/blog/blog.module';
-import { StyleModule } from './modules/style/style.module';
 import { LayoutModule } from './modules/layout/layout.module';
 import { PublicPageModule } from './modules/public-page/public-page.module';
 import { StarModule } from './modules/actions/star/star.module';
@@ -17,6 +16,8 @@ import { ShareModule } from './modules/actions/share/share.module';
 import { CommentModule } from './modules/actions/comment/comment.module';
 import { FavoriteModule } from './modules/favorite/favorite.module';
 import { SystemNotifModule } from './modules/system-notif/system-notif.module';
+import { TopicModule } from './modules/topic/topic.module';
+import { EventModule } from './modules/event/event.module';
 
 @Module({
   imports: [
@@ -30,15 +31,16 @@ import { SystemNotifModule } from './modules/system-notif/system-notif.module';
     AccountModule,
     UserModule,
     BlogModule,
-    StyleModule,
     LayoutModule,
     PublicPageModule,
+    EventModule,
     StarModule,
     LikeModule,
     ShareModule,
     CommentModule,
     FavoriteModule,
     SystemNotifModule,
+    TopicModule,
   ],
   controllers: [AppController],
   providers: [AppService],

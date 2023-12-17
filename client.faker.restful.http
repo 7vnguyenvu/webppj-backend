@@ -2,17 +2,13 @@
 ############### BACKEND_WEBPPJ
 GET http://localhost:7000
 
-### -> REST API -> GET USERS
+
+################################################################# [USERS]
+### -> USERS API -> GET USERS
 GET http://localhost:7000/api/users
-
-### -> REST API -> GET USER/:id
+### -> USERS API -> GET USER/:id
 GET http://localhost:7000/api/users/20231211133753643
-
-### -> REST API -> GET ACCOUNTS
-GET http://localhost:7000/api/accounts
-
-
-### -> REST API -> POST CREATE USER
+### -> USERS API -> POST CREATE USER
 POST http://localhost:7000/api/users/new
 content-type: application/json
 
@@ -20,7 +16,19 @@ content-type: application/json
     "last_name": "Nguyễn Vũ"
 }
 
-### -> REST API -> POST CREATE ACCOUNT -> ADMIN
+### -> USERS API -> PUT UPDATE USER
+PUT http://localhost:7000/api/users/update/20231211133753643
+content-type: application/json
+
+{
+}
+
+
+
+################################################################# [ACCOUNTS]
+### -> ACCOUNTS API -> GET ACCOUNTS
+GET http://localhost:7000/api/accounts
+### -> ACCOUNTS API -> POST CREATE ACCOUNT -> ADMIN
 POST http://localhost:7000/api/accounts/create
 content-type: application/json
 
@@ -31,7 +39,7 @@ content-type: application/json
     "role": 7
 }
 
-### -> REST API -> POST CREATE ACCOUNT -> USER
+### -> ACCOUNTS API -> POST CREATE ACCOUNT -> USER
 POST http://localhost:7000/api/accounts/create
 content-type: application/json
 
@@ -41,7 +49,7 @@ content-type: application/json
     "password": "user1"
 }
 
-### -> REST API -> POST ACCOUNT SIGN-IN -> NORMAL
+### -> ACCOUNTS API -> POST ACCOUNT SIGN-IN -> NORMAL
 POST http://localhost:7000/api/accounts/signin
 content-type: application/json
 
@@ -50,10 +58,93 @@ content-type: application/json
     "password": "admin777"
 }
 
-### -> REST API -> PUT/PATCH UPDATE USER
-POST http://localhost:7000/users/update
+
+
+################################################################# [BLOGS]
+### -> BLOGS API -> GET BLOGS
+GET http://localhost:7000/api/blogs
+### -> BLOGS API -> GET USER/:id
+GET http://localhost:7000/api/blogs/213
+### -> BLOGS API -> POST CREATE BLOG
+POST http://localhost:7000/api/blogs/new
 content-type: application/json
 
+{
+    "owner_id": "20231211133753643",
+    "content": {
+        "thumbnail": {
+            "filename": "thumbnail.jpg",
+            "url": "http://localhost:7000/images/blogs/thumbnail.jpg"
+        },
+        "title": "SAD THỦ FOREVER 7",
+        "content": "<p>Một dĩa mồi khô, một kết bia<br />Một chai rượu nếp, một cái thìa<br />Chẳng được một đôi như đôi đũa<br />Một mình ngồi nhậu, quẩy zìa zia!!</p><p>&nbsp;</p><p>-- Nguyen Vu --</p>"
+    },
+    "view": 7
+}
+
+### -> BLOGS API -> PUT UPDATE USER
+PUT http://localhost:7000/api/blogs/update/20231211133753643
+content-type: application/json
+{
+}
+
+
+
+################################################################# [PAGES]
+### -> PAGES API -> GET PAGES
+GET http://localhost:7000/api/pages
+### -> PAGES API -> GET USER/:id
+GET http://localhost:7000/api/pages/213
+### -> PAGES API -> POST CREATE BLOG
+POST http://localhost:7000/api/pages/new
+content-type: application/json
+
+{
+    "owner_id": "20231211133753643",
+    "content": {
+        "thumbnail": {
+            "filename": "thumbnail.jpg",
+            "url": "http://localhost:7000/images/blogs/thumbnail.jpg"
+        },
+        "title": "SAD THỦ FOREVER 7",
+        "content": "<p>Một dĩa mồi khô, một kết bia<br />Một chai rượu nếp, một cái thìa<br />Chẳng được một đôi như đôi đũa<br />Một mình ngồi nhậu, quẩy zìa zia!!</p><p>&nbsp;</p><p>-- Nguyen Vu --</p>"
+    },
+    "view": 7
+}
+
+### -> PAGES API -> PUT UPDATE USER
+PUT http://localhost:7000/api/blogs/update/20231211133753643
+content-type: application/json
+{
+}
+
+
+
+################################################################# [EVENTS]
+### -> EVENTS API -> GET EVENTS
+GET http://localhost:7000/api/events
+### -> EVENTS API -> GET USER/:id
+GET http://localhost:7000/api/events/213
+### -> EVENTS API -> POST CREATE BLOG
+POST http://localhost:7000/api/events/new
+content-type: application/json
+
+{
+    "owner_id": "20231211133753643",
+    "content": {
+        "thumbnail": {
+            "filename": "thumbnail.jpg",
+            "url": "http://localhost:7000/images/blogs/thumbnail.jpg"
+        },
+        "title": "SAD THỦ EVENT 7",
+        "content": "<p>Một dĩa mồi khô, một kết bia<br />Một chai rượu nếp, một cái thìa<br />Chẳng được một đôi như đôi đũa<br />Một mình ngồi nhậu, quẩy zìa zia!!</p><p>&nbsp;</p><p>-- Nguyen Vu --</p>"
+    },
+    "view": 7
+}
+
+### -> EVENTS API -> PUT UPDATE USER
+PUT http://localhost:7000/api/blogs/update/20231211133753643
+content-type: application/json
 {
 }
 

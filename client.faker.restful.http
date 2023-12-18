@@ -8,6 +8,8 @@ GET http://localhost:7000
 GET http://localhost:7000/api/users
 ### -> USERS API -> GET USER/:id
 GET http://localhost:7000/api/users/20231211133753643
+### -> USERS API -> GET USER/:nickname
+GET http://localhost:7000/api/users/user/@7V
 ### -> USERS API -> POST CREATE USER
 POST http://localhost:7000/api/users/new
 content-type: application/json
@@ -70,16 +72,27 @@ POST http://localhost:7000/api/blogs/new
 content-type: application/json
 
 {
-    "owner_id": "20231211133753643",
-    "content": {
-        "thumbnail": {
-            "filename": "thumbnail.jpg",
-            "url": "http://localhost:7000/images/blogs/thumbnail.jpg"
-        },
-        "title": "SAD THỦ FOREVER 7",
-        "content": "<p>Một dĩa mồi khô, một kết bia<br />Một chai rượu nếp, một cái thìa<br />Chẳng được một đôi như đôi đũa<br />Một mình ngồi nhậu, quẩy zìa zia!!</p><p>&nbsp;</p><p>-- Nguyen Vu --</p>"
+    "owner": { 
+        "name": "Nguyễn Vũ",
+        "avatar": [
+            {
+                "filename": "admin.png",
+                "url": "http://localhost:7000/images/avatars/admin.png"
+            }
+        ],
+        "page_url": "@7V"
     },
-    "view": 7
+    "content": {
+        "thumbnail": [
+            {
+                "filename": "thumbnail.jpg",
+                "url": "http://localhost:7000/images/blogs/thumbnail.jpg"
+            }
+        ],
+        "title": "SAD THỦ FOREVER 1",
+        "content": "Một dĩa mồi khô, một kết bia\nMột chai rượu nếp, một cái thìa\nChẳng được nên đôi, cô đơn mãi\nMột mình ngồi nhậu, quẩy zìa zia!!\n\n-- Nguyen Vu --"
+    },
+    "view": 979578
 }
 
 ### -> BLOGS API -> PUT UPDATE USER

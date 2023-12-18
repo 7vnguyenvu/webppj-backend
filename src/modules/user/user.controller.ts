@@ -12,8 +12,13 @@ export class UserController {
   }
 
   @Get(':id')
-  async user(@Param('id') user_id: string): Promise<User> {
+  async userById(@Param('id') user_id: string): Promise<User> {
     return await this.userService.findBy('user_id', user_id);
+  }
+
+  @Get('user/:nickname')
+  async userByNickName(@Param('nickname') nickname: string): Promise<User> {
+    return await this.userService.findByNickname(nickname);
   }
 
   @Post('new')

@@ -47,6 +47,9 @@ export class User {
   theme_color: string;
 
   @Prop({ default: 0 })
+  like: number;
+
+  @Prop({ default: 0 })
   view: number;
 
   @Prop({ default: [] })

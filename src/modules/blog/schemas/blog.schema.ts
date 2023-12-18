@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { BlogContent } from 'src/modules/schemas/schema';
+import { BlogContent, BlogOwner } from 'src/modules/schemas/schema';
 
 /*
 	. _id
@@ -24,7 +24,7 @@ export class Blog {
   blog_id: string;
 
   @Prop({ required: true })
-  owner_id: string;
+  owner: BlogOwner;
 
   @Prop({ required: true })
   content: BlogContent;

@@ -50,8 +50,14 @@ export class LayoutItem {
   styles?: Record<string, string | number>;
 }
 
+export class BlogOwner {
+  name?: string;
+  avatar?: Image[]; // fix nếu đầu vbaof cố định thì không thể cập nhật trạng thái người dùng được
+  page_url?: string;
+}
+
 export class BlogContent {
-  thumbnail?: Image;
+  thumbnail?: Image[];
   title?: string;
   content?: string;
 }

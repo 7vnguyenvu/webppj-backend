@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './schemas/user.schema';
+import { query } from 'express';
 
 @Controller('api/users')
 export class UserController {
@@ -19,6 +20,11 @@ export class UserController {
   @Get('user/:nickname')
   async userByNickName(@Param('nickname') nickname: string): Promise<User> {
     return await this.userService.findByNickname(nickname);
+  }
+
+  @Post('viewer')
+  async viewer(@Query('list') list: string) {
+    return await this.userService.findViewer(list.split(','));
   }
 
   @Post('new')

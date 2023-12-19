@@ -16,6 +16,11 @@ export class BlogController {
     return await this.blogService.findBy('blog_id', blog_id);
   }
 
+  @Get('user/:userpage')
+  async userblogs(@Param('userpage') userpage: string): Promise<Blog[]> {
+    return await this.blogService.findUserBlogs(userpage);
+  }
+
   @Post('new')
   async create(@Body() blog: Blog): Promise<Blog> {
     return await this.blogService.create(blog);

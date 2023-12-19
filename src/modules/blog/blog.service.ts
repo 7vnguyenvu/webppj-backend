@@ -21,6 +21,10 @@ export class BlogService {
     return await this.blogModle.findOne({ [field]: value }).exec();
   }
 
+  async findUserBlogs(userpage: any): Promise<Blog[]> {
+    return await this.blogModle.find({ 'owner.page_url': userpage }).exec();
+  }
+
   async create(blog: Blog): Promise<Blog> {
     blog.blog_id = new Date().toISOString().replace(/\D/g, '');
     return await this.blogModle.create(blog);

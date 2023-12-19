@@ -22,6 +22,17 @@ export class UserService {
     return await this.userModle.findOne({ 'info.nick_name': value }).exec();
   }
 
+  async findViewer(listid: string[]) {
+    const promises = listid.map(async (id) => {
+      const user = await this.userModle.findOne({ user_id: id }).exec();
+      return user;
+    });
+
+    const users = await Promise.all(promises);
+
+    return users.filter(Boolean);
+  }
+
   async create(user: UserNone): Promise<User> {
     const ucreate = new User();
     ucreate.user_id = new Date().toISOString().replace(/\D/g, '');

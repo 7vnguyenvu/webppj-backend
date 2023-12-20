@@ -23,7 +23,7 @@ import { EventModule } from './modules/event/event.module';
   imports: [
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'files'),
+      rootPath: join(__dirname, '../..', 'files'),
     }),
     MongooseModule.forRoot(
       `${process.env.DB_CONNECTION}/${process.env.DB_NAME}`,

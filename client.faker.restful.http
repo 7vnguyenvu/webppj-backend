@@ -10,6 +10,8 @@ GET http://localhost:7000/api/users
 GET http://localhost:7000/api/users/20231211133753643
 ### -> USERS API -> GET USER/:nickname
 GET http://localhost:7000/api/users/user/@7V
+### -> USERS API -> GET USER/VIEWER
+POST http://localhost:7000/api/users/viewer?list=20231211133753643,20231211163214134
 ### -> USERS API -> POST CREATE USER
 POST http://localhost:7000/api/users/new
 content-type: application/json
@@ -65,8 +67,10 @@ content-type: application/json
 ################################################################# [BLOGS]
 ### -> BLOGS API -> GET BLOGS
 GET http://localhost:7000/api/blogs
-### -> BLOGS API -> GET USER/:id
-GET http://localhost:7000/api/blogs/213
+### -> BLOGS API -> GET BLOGS/:id
+GET http://localhost:7000/api/blogs/20231218094958180
+### -> BLOGS API -> GET BLOGS/USER/:PAGE
+GET http://localhost:7000/api/blogs/user/@user20231211163214451
 ### -> BLOGS API -> POST CREATE BLOG
 POST http://localhost:7000/api/blogs/new
 content-type: application/json

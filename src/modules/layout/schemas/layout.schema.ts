@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { DefaultLayoutThumbnailImage } from 'src/modules/schemas/default';
+import { DefaultImage } from 'src/modules/schemas/default';
 import { LayoutItem, Image } from 'src/modules/schemas/schema';
 
 /*
@@ -28,10 +28,10 @@ export class LayoutPage {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ default: DefaultLayoutThumbnailImage })
+  @Prop({ default: DefaultImage })
   thumbnail: Image;
 
-  @Prop({ default: [] })
+  @Prop({ required: true })
   items: LayoutItem[];
 }
 

@@ -19,7 +19,7 @@ export class PublicPageService {
   }
 
   async create(blog: PublicPage): Promise<PublicPage> {
-    blog.blog_id = new Date().toISOString().replace(/\D/g, '');
+    // blog.blog_id = new Date().toISOString().replace(/\D/g, '');
     return await this.blogModle.create(blog);
   }
 }

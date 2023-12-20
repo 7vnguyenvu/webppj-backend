@@ -1,17 +1,39 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { BlogContent } from 'src/modules/schemas/schema';
+import {
+  DefaultImage,
+  DefaultPageInfoContent,
+  DefaultPublicPageInfo,
+} from 'src/modules/schemas/default';
+import {
+  Image,
+  PublicPageShow,
+  PublicPageInfo,
+  PageInfoContent,
+} from 'src/modules/schemas/schema';
 
 /*
 	. _id
-	. Mã bài viết
-	. Mã tác giả
-	. Nội dung
-		. Ảnh thu nhỏ -> thumbnail/typical image
-		. Tiêu đề
-		. Nội dung (CKEDITER)
-	. Đã ẩn (true/false)
-	. Đã xoá (true/false)
-	. Ghim lên đầu / Nổi bật
+	. Mã trang đại chúng
+	. Mã người dùng
+	. Phong cách (chủ đề)
+	. Bố cục (loại 1,2,3,... custom)
+	. Ảnh mô tả trang
+		. filename
+		. url
+	. Hiển thị
+		. Ảnh bìa người dùng
+			. Hình ảnh
+				. filename
+				. url
+			. Trang thái (Ẩn/hiện)
+			. Kích thước ảnh
+		. Ảnh nền
+		. Ảnh đại diện
+		. Tên
+		. Slogan thể hiện phong cách
+		. Bài viết của tôi
+		. Hoạt động gần đây
+		. Kết nối
 	. Lượt xem
 	. Lượt comment
 	. Lượt share
@@ -21,34 +43,25 @@ import { BlogContent } from 'src/modules/schemas/schema';
 @Schema({ timestamps: true })
 export class PublicPage {
   @Prop({ required: true })
-  blog_id: string;
+  page_id: string;
 
   @Prop({ required: true })
   owner_id: string;
 
   @Prop({ required: true })
-  content: BlogContent;
+  layout_id: string;
 
-  @Prop({ default: false })
-  hidden: boolean;
+  @Prop({ default: DefaultImage })
+  thumbnail: Image;
 
-  @Prop({ default: false })
-  locked: boolean;
+  @Prop({ default: {} })
+  show: PublicPageShow;
 
-  @Prop({ default: false })
-  pin: boolean;
+  @Prop({ default: DefaultPublicPageInfo })
+  pageinfo: PublicPageInfo;
 
-  @Prop({ default: 0 })
-  view: number;
-
-  @Prop({ default: 0 })
-  like: number;
-
-  @Prop({ default: 0 })
-  comment: number;
-
-  @Prop({ default: 0 })
-  share: number;
+  @Prop({ default: DefaultPageInfoContent })
+  pageinfocontent: PageInfoContent;
 }
 
 export const PublicPageSchema = SchemaFactory.createForClass(PublicPage);

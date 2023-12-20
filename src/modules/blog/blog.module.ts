@@ -15,5 +15,6 @@ import { UserSchema } from '../user/schemas/user.schema';
   ],
   controllers: [BlogController],
   providers: [BlogService, UserService],
+  exports: [BlogService],
 })
 export class BlogModule {}

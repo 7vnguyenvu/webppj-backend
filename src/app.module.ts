@@ -11,13 +11,13 @@ import { BlogModule } from './modules/blog/blog.module';
 import { LayoutModule } from './modules/layout/layout.module';
 import { PublicPageModule } from './modules/public-page/public-page.module';
 import { StarModule } from './modules/actions/star/star.module';
-import { LikeModule } from './modules/actions/like/like.module';
 import { ShareModule } from './modules/actions/share/share.module';
 import { CommentModule } from './modules/actions/comment/comment.module';
 import { FavoriteModule } from './modules/favorite/favorite.module';
 import { SystemNotifModule } from './modules/system-notif/system-notif.module';
 import { TopicModule } from './modules/topic/topic.module';
 import { EventModule } from './modules/event/event.module';
+import { LikeModule } from './modules/actions/like/like.module';
 
 @Module({
   imports: [

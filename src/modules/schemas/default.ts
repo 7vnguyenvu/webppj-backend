@@ -36,20 +36,20 @@ export const DefaultUserImage = {
   avatar: [
     {
       filename: 'user-default.png',
-      url: `${process.env.HOME_PAGE}/images/avatars/user-default.png`,
+      url: `http://localhost:7000/images/avatars/user-default.png`,
     },
   ],
   cover: [
     {
-      filename: 'user-default.png',
-      url: `${process.env.HOME_PAGE}/images/cover-images/user-default.png`,
+      filename: 'admin.jpg',
+      url: `http://localhost:7000/images/cover-images/admin.jpg`,
     },
   ],
 };
 
 export const DefaultLayoutThumbnailImage = {
   filename: 'default.png',
-  url: `${process.env.HOME_PAGE}/images/layouts/page-intro-thumbnails/default.png`,
+  url: `http://localhost:7000/images/layouts/page-intro-thumbnails/default.png`,
 };
 
 export const DefaultPublicPageImages = {

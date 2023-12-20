@@ -3,6 +3,12 @@ export const DefaultImage = {
   url: '',
 };
 
+export const DefaultImageStatus = {
+  hide: false,
+  filename: '',
+  url: '',
+};
+
 export const DefaultSocialUrl = {
   name: '',
   hyperlink: '',
@@ -44,4 +50,40 @@ export const DefaultUserImage = {
 export const DefaultLayoutThumbnailImage = {
   filename: 'default.png',
   url: `${process.env.HOME_PAGE}/images/layouts/page-intro-thumbnails/default.png`,
+};
+
+export const DefaultPublicPageImages = {
+  background: DefaultImage,
+  avatar: DefaultImageStatus,
+  cover: [],
+};
+
+export const PublicPageShow = {
+  name: '',
+  slogan: '',
+  images: DefaultPublicPageImages,
+};
+
+export const DefaultInteraction = {
+  star: 0,
+  like: 0,
+  cmt: 0,
+  share: 0,
+};
+
+export const DefaultInteractionContent = {
+  viewer: 0,
+  blog: 0,
+  link: 0,
+  owner_avatar: '',
+};
+
+export const DefaultPublicPageInfo = {
+  vertical: false,
+  info: DefaultInteraction,
+};
+
+export const DefaultPageInfoContent = {
+  vertical: false,
+  info: DefaultInteractionContent,
 };

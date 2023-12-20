@@ -3,6 +3,12 @@ export class Image {
   url?: string;
 }
 
+export class ImageStatus {
+  hide?: boolean;
+  filename?: string;
+  url?: string;
+}
+
 export class SocialUrl {
   name?: string;
   hyperlink?: string;
@@ -60,4 +66,40 @@ export class BlogContent {
   thumbnail?: Image[];
   title?: string;
   content?: string;
+}
+
+export class PublicPageImages {
+  background?: Image;
+  avatar?: ImageStatus;
+  cover?: ImageStatus[];
+}
+
+export class PublicPageShow {
+  name?: string;
+  slogan?: string;
+  images?: PublicPageImages;
+}
+
+export class Interaction {
+  star?: number;
+  like?: number;
+  cmt?: number;
+  share?: number;
+}
+
+export class InteractionContent {
+  viewer?: number;
+  blog?: number;
+  link?: number;
+  owner_avatar?: string;
+}
+
+export class PublicPageInfo {
+  vertical?: boolean;
+  info?: Interaction;
+}
+
+export class PageInfoContent {
+  vertical?: boolean;
+  info?: InteractionContent;
 }

@@ -26,6 +26,11 @@ export class UserController {
     return await this.userService.findViewer(list.split(','));
   }
 
+  @Post('search')
+  async search(@Query('key') key: string) {
+    return await this.userService.search(key);
+  }
+
   @Post('new')
   async create(@Body() user): Promise<User> {
     return await this.userService.create(user);

@@ -18,6 +18,18 @@ export class UserService {
     return await this.userModle.findOne({ [field]: value }).exec();
   }
 
+  async search(key: string): Promise<User[]> {
+    const searches: User[] = [];
+    const users = await this.find();
+    if (users) {
+      searches.push(
+        ...users.filter((item) => item.info.full_name.includes(key)),
+      );
+    }
+
+    return searches;
+  }
+
   async findByNickname(value: any): Promise<User> {
     return await this.userModle.findOne({ 'info.nick_name': value }).exec();
   }
